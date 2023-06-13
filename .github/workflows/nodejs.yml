@@ -16,15 +16,5 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
-      - name: Run client
+      - run: yarn --ignore-scripts && yarn test
         working-directory: ./client
-        run: yarn --ignore-scripts
-        run: yarn test
-      - name: Run consumer
-        working-directory: ./consumer
-        run: yarn --ignore-scripts
-        run: yarn test
-      - name: Run subscriber
-        working-directory: ./subscriber
-        run: yarn --ignore-scripts
-        run: yarn test
