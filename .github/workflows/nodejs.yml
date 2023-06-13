@@ -20,5 +20,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
+      - run: ls -al
       - run: yarn --ignore-scripts
       - run: yarn test
