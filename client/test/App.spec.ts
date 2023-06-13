@@ -1,5 +1,5 @@
 import { INestApplication } from '@nestjs/common';
-import { AppService } from '../src/App.service';
+import { AppService } from 'src/App.service';
 import * as request from 'supertest';
 import { setupTest } from 'test/helpers';
 
