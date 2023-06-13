@@ -1,0 +1,36 @@
+# Ref: https://wanago.io/2023/01/16/api-nestjs-docker-compose/
+
+version: '3.8'
+
+services:
+  redis:
+    image: "redis:6.0-alpine"
+    ports:
+      - "6379:6379"
+  
+  client:
+    image: client:v1
+    restart: always
+    environment:
+      - QUEUE_HOST=redis
+    ports:
+      - "80:3030" 
+    depends_on:
+      - redis
+  
+  subscriber:
+    image: subscriber:v1
+    restart: always
+    environment:
+      - QUEUE_HOST=redis
+    depends_on:
+      - redis
+
+  consumer:
+    image: consumer:v1
+    restart: always
+    environment:
+      - QUEUE_HOST=redis
+    depends_on:
+      - redis
+  
