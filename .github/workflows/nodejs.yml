@@ -16,12 +16,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
-      - run: cd client && yarn --ignore-scripts && yarn test
-      - run: cd ..
-      - run: cd subscriber
-      - run: yarn --ignore-scripts
-      - run: yarn test
-      - run: cd ..
-      - run: cd consumer
-      - run: yarn --ignore-scripts
-      - run: yarn test
+      - name: Run client
+        working-directory: ./client
+        run: yarn --ignore-scripts
+        run: yarn test
+      - name: Run consumer
+        working-directory: ./consumer
+        run: yarn --ignore-scripts
+        run: yarn test
+      - name: Run subscriber
+        working-directory: ./subscriber
+        run: yarn --ignore-scripts
+        run: yarn test
