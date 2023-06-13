@@ -1,5 +1,5 @@
-import { AppController } from 'src/App.controller';
-import { AppService } from 'src/App.service';
+import { AppController } from '../src/App.controller';
+import { AppService } from '../src/App.service';
 
 describe('AppController (e2e)', () => {
   let processor: AppController;
